@@ -1,16 +1,17 @@
 import { env } from '@fluxo/env'
 import { betterAuth } from 'better-auth'
 import { drizzleAdapter } from 'better-auth/adapters/drizzle'
-import { drizzle } from 'drizzle-orm/node-postgres'
-import { Pool } from 'pg'
-import * as schema from './auth-schema'
-
-const db = drizzle(new Pool({ connectionString: process.env.DATABASE_URL }), {
-  schema,
-})
+import { openAPI } from 'better-auth/plugins'
+import { db } from '../db/client.js'
 
 export const auth = betterAuth({
-  database: drizzleAdapter(db, { provider: 'pg', schema }),
-  baseURL: `${env.API_HOST}:${env.API_PORT}`,
+  plugins: [
+    openAPI({
+      disableDefaultReference: true,
+    }),
+  ],
+  trustedOrigins: ['http://localhost:3333'],
+  database: drizzleAdapter(db, { provider: 'pg', usePlural: true }),
+  baseURL: env.BETTER_AUTH_URL,
   emailAndPassword: { enabled: true },
 })
