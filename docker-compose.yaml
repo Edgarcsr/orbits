@@ -1,11 +1,11 @@
 services:
   db:
     image: postgres:alpine
-    container_name: fluxo_postgres
+    container_name: orbits_postgres
     restart: unless-stopped
     environment:
       POSTGRES_USER: docker
       POSTGRES_PASSWORD: docker
-      POSTGRES_DB: fluxo_dev
+      POSTGRES_DB: orbits_dev
     ports:
       - "5432:5432"

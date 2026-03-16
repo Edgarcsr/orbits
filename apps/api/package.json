@@ -11,8 +11,8 @@
   "dependencies": {
     "@fastify/cors": "^11.2.0",
     "@fastify/swagger": "^9.7.0",
-    "@fluxo/env": "workspace:*",
-    "@fluxo/tsconfig": "workspace:*",
+    "@orbits/env": "workspace:*",
+    "@orbits/tsconfig": "workspace:*",
     "@scalar/fastify-api-reference": "^1.48.5",
     "better-auth": "^1.5.4",
     "drizzle-orm": "^0.45.1",

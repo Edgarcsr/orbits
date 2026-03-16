@@ -1,6 +1,6 @@
 import fastifyCors from '@fastify/cors'
 import { fastifySwagger } from '@fastify/swagger'
-import { env } from '@fluxo/env'
+import { env } from '@orbits/env'
 import scalarAPIReference from '@scalar/fastify-api-reference'
 import fastify from 'fastify'
 import {
@@ -27,7 +27,7 @@ app.register(fastifyCors, {
 app.register(fastifySwagger, {
   openapi: {
     info: {
-      title: 'Fluxo API',
+      title: 'Orbits API',
       version: '1.0.0',
     },
   },

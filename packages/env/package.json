@@ -1,11 +1,11 @@
 {
-  "name": "@fluxo/env",
+  "name": "@orbits/env",
   "version": "0.0.0",
   "private": true,
   "main": "index.ts",
   "dependencies": {
     "zod": "^4.3.6",
-    "@fluxo/tsconfig": "workspace:*"
+    "@orbits/tsconfig": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^25.4.0"

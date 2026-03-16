@@ -1,4 +1,4 @@
-import { env } from '@fluxo/env'
+import { env } from '@orbits/env'
 import { drizzle } from 'drizzle-orm/node-postgres'
 import { schema } from './schema'
 

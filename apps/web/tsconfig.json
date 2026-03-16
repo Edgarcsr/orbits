@@ -1,5 +1,5 @@
 {
-  "extends": "@fluxo/tsconfig/nextjs",
+  "extends": "@orbits/tsconfig/nextjs",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {

@@ -32,10 +32,10 @@ importers:
       '@fastify/swagger':
         specifier: ^9.7.0
         version: 9.7.0
-      '@fluxo/env':
+      '@orbits/env':
         specifier: workspace:*
         version: link:../../packages/env
-      '@fluxo/tsconfig':
+      '@orbits/tsconfig':
         specifier: workspace:*
         version: link:../../packages/typescript-config
       '@scalar/fastify-api-reference':
@@ -109,7 +109,7 @@ importers:
         specifier: ^1.4.0
         version: 1.4.0
     devDependencies:
-      '@fluxo/tsconfig':
+      '@orbits/tsconfig':
         specifier: workspace:*
         version: link:../../packages/typescript-config
       '@tailwindcss/postcss':
@@ -138,7 +138,7 @@ importers:
 
   packages/env:
     dependencies:
-      '@fluxo/tsconfig':
+      '@orbits/tsconfig':
         specifier: workspace:*
         version: link:../typescript-config
       zod:
