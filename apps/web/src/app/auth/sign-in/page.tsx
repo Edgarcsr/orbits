@@ -1,12 +1,12 @@
 'use client'
+import { ArrowRight } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
 import Logo from '@/components/logo'
 import { Button } from '@/components/ui/button'
 import { Field, FieldGroup, FieldLabel } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
-import { ArrowRight } from 'lucide-react'
-import Image from 'next/image'
-import Link from 'next/link'
 
 export default function SignInPage() {
   return (
@@ -20,32 +20,40 @@ export default function SignInPage() {
       </div>
       <Button variant="outline" className="w-80 font-normal p-4">
         <Image
-        className='p-1'
-        src='/google-white-icon.webp'
-        alt=''
-        width={24}
-        height={24}
+          className="p-1"
+          src="/google-white-icon.webp"
+          alt=""
+          width={24}
+          height={24}
         />
         Sign in with Google
       </Button>
       <Separator className="max-w-80" />
       <form>
-        <FieldGroup className='w-80'>
+        <FieldGroup className="w-80">
           <Field>
-            <FieldLabel htmlFor='email'>Email</FieldLabel>
-            <Input id='email' type="email" placeholder="email@example.com" />
+            <FieldLabel htmlFor="email">Email</FieldLabel>
+            <Input id="email" type="email" placeholder="email@example.com" />
           </Field>
           <Field>
-            <FieldLabel htmlFor='password'>Password</FieldLabel>
-            <Input id='password' type="password" placeholder="••••••••" />
+            <FieldLabel htmlFor="password">Password</FieldLabel>
+            <Input id="password" type="password" placeholder="••••••••" />
           </Field>
-          <Button type="submit" className="w-full bg-amber-400 font-normal p-4">
+          <Button
+            type="submit"
+            className="w-full bg-amber-400 hover:bg-amber-300 font-normal p-4"
+          >
             Continue
             <ArrowRight />
           </Button>
         </FieldGroup>
       </form>
-      <p className='text-xs text-muted-foreground'>Don't have an account? <Link href="/auth/sign-up" className="text-foreground hover:underline">Sign up</Link></p>
+      <p className="text-xs text-muted-foreground">
+        Don't have an account?{' '}
+        <Link href="/auth/sign-up" className="text-foreground hover:underline">
+          Sign up
+        </Link>
+      </p>
     </div>
   )
 }
