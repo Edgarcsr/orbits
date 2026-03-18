@@ -10,6 +10,7 @@ import {
   type ZodTypeProvider,
 } from 'fastify-type-provider-zod'
 import { auth } from '../lib/auth'
+import { uploadVideoRoute } from './routes/upload-video'
 
 const app = fastify().withTypeProvider<ZodTypeProvider>()
 
@@ -78,6 +79,9 @@ app.route({
     }
   },
 })
+
+// Register API routes
+app.register(uploadVideoRoute)
 
 // Initialize server
 app
