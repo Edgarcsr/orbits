@@ -1,5 +1,5 @@
-'use client'
 import { ArrowRight } from 'lucide-react'
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import Logo from '@/components/logo'
@@ -7,6 +7,10 @@ import { Button } from '@/components/ui/button'
 import { Field, FieldGroup, FieldLabel } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
+
+export const metadata: Metadata = {
+  title: 'Sign In',
+}
 
 export default function SignInPage() {
   return (
