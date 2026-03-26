@@ -1,12 +1,10 @@
-import { ArrowRight } from 'lucide-react'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import Logo from '@/components/logo'
 import { Button } from '@/components/ui/button'
-import { Field, FieldGroup, FieldLabel } from '@/components/ui/field'
-import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
+import SignInForm from './sign-in-form'
 
 export const metadata: Metadata = {
   title: 'Sign In',
@@ -33,25 +31,7 @@ export default function SignInPage() {
         Sign in with Google
       </Button>
       <Separator className="max-w-80" />
-      <form>
-        <FieldGroup className="w-80">
-          <Field>
-            <FieldLabel htmlFor="email">Email</FieldLabel>
-            <Input id="email" type="email" placeholder="email@example.com" />
-          </Field>
-          <Field>
-            <FieldLabel htmlFor="password">Password</FieldLabel>
-            <Input id="password" type="password" placeholder="••••••••" />
-          </Field>
-          <Button
-            type="submit"
-            className="w-full bg-amber-400 hover:bg-amber-300 font-normal p-4"
-          >
-            Continue
-            <ArrowRight />
-          </Button>
-        </FieldGroup>
-      </form>
+      <SignInForm />
       <p className="text-xs text-muted-foreground">
         Don't have an account?{' '}
         <Link href="/auth/sign-up" className="text-foreground hover:underline">
