@@ -2,6 +2,10 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+@theme {
+  --color-orbit-500: oklch(80.88% 0.17035820353117495 75.35007034063233);
+}
+
 @custom-variant dark (&:is(.dark *));
 
 :root {

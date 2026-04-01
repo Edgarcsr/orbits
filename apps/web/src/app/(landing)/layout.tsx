@@ -7,7 +7,7 @@ export default function LandingLayout({
   children: React.ReactNode
 }>) {
   return (
-    <main className="w-7xl m-auto flex flex-col mt-16">
+    <main className="m-auto flex flex-col">
       <LightRays />
       <Navbar />
       {children}

@@ -19,21 +19,30 @@ export default function Hero() {
       className="text-4xl h-96"
     >
       <div className="h-[40rem] flex flex-col text-left justify-center px-4">
-        <div className="text-4xl font-normal">
+        <h1 className="text-4xl font-normal text-muted-foreground">
           Make your projects
-          <FlipWords words={flipWords} className="!text-amber-400" /> <br />
+          <FlipWords words={flipWords} /> <br />
           with Orbits.
-        </div>
-        <p className="text-lg text-muted-foreground mt-8">
+        </h1>
+        <motion.p
+          initial={{ opacity: 0, y: 5 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="text-lg text-muted-foreground mt-8"
+        >
           The all-in-one platform for creating, managing and delivering your
           projects with ease.
-        </p>
-        <div>
+        </motion.p>
+        <motion.div
+          initial={{ opacity: 0, y: 5 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.0 }}
+        >
           <Button className=" mt-8">Get Started</Button>
           <Button variant="outline" className="ml-4 mt-8 text-muted-foreground">
             Learn more
           </Button>
-        </div>
+        </motion.div>
       </div>
     </motion.div>
   )

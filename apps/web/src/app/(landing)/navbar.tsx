@@ -52,7 +52,7 @@ export default function Navbar() {
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
-        <Button className="bg-amber-400 hover:bg-amber-300">
+        <Button className="bg-orbit-500 hover:bg-amber-300">
           Open account
           <ChevronRight className="ml-2 size-4" />
         </Button>
