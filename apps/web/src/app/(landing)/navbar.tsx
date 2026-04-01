@@ -31,17 +31,15 @@ export default function Navbar() {
               <NavigationMenuContent>
                 <ul className="grid grid-rows-2 grid-cols-2 gap-4 p-4">
                   <li className="row-span-2">
-                    <Link href="/">
-                      <NavigationMenuLink>
-                        <div className="flex flex-col max-w-32">
-                          <Logo />
-                          <span>What is Orbits</span>
-                          <p className="text-sm text-muted-foreground">
-                            your solution for project management.
-                          </p>
-                        </div>
-                      </NavigationMenuLink>
-                    </Link>
+                    <NavigationMenuLink href="/">
+                      <div className="flex flex-col max-w-32">
+                        <Logo />
+                        <span>What is Orbits</span>
+                        <p className="text-sm text-muted-foreground">
+                          your solution for project management.
+                        </p>
+                      </div>
+                    </NavigationMenuLink>
                   </li>
                   <li>
                     <NavigationMenuLink>Link</NavigationMenuLink>

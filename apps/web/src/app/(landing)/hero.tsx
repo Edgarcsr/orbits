@@ -29,10 +29,8 @@ export default function Hero() {
           projects with ease.
         </p>
         <div>
-          <Button className="bg-amber-400 hover:bg-amber-300 mt-8">
-            Open account
-          </Button>
-          <Button variant="outline" className="ml-4 mt-8">
+          <Button className=" mt-8">Get Started</Button>
+          <Button variant="outline" className="ml-4 mt-8 text-muted-foreground">
             Learn more
           </Button>
         </div>
