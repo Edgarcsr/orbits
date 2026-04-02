@@ -1,5 +1,5 @@
 'use client'
-import { BoxIcon, FlaskConicalIcon, Pyramid } from 'lucide-react'
+import { BoxIcon } from 'lucide-react'
 import { motion } from 'motion/react'
 import { Button } from '@/components/ui/button'
 import { FlipWords } from '@/components/ui/flip-words'
@@ -19,7 +19,7 @@ export default function Hero() {
       transition={{ ease: 'circOut', duration: 0.5 }}
       className="text-4xl h-96"
     >
-      <div className="h-[40rem] flex flex-col text-left justify-center px-4">
+      <div className="h-160 flex flex-col text-left justify-center px-4">
         <motion.span
           initial={{ opacity: 0, x: -15 }}
           animate={{ opacity: 1, x: 0 }}

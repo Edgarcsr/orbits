@@ -120,6 +120,7 @@ export default function Aurora(props) {
 
   const ctnDom = useRef(null)
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <Library manages this>
   useEffect(() => {
     const ctn = ctnDom.current
     if (!ctn) return

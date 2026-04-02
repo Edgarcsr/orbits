@@ -1,5 +1,6 @@
 'use client'
-import Aurora from '@/components/Aurora'
+
+import Aurora from '@/components/react-bits/Aurora'
 
 export default function AuroraBackground() {
   return (

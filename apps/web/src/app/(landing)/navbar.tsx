@@ -2,7 +2,6 @@
 
 import { ChevronRight } from 'lucide-react'
 import { motion } from 'motion/react'
-import Link from 'next/link'
 import Logo from '@/components/logo'
 import { Button } from '@/components/ui/button'
 import {
