@@ -17,9 +17,8 @@ export default function Hero() {
       initial={{ opacity: 0, y: 80 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ ease: 'circOut', duration: 0.5 }}
-      className="text-4xl h-96"
     >
-      <div className="h-160 flex flex-col text-left justify-center px-4">
+      <div className="py-16 flex flex-col text-left justify-center px-4">
         <motion.span
           initial={{ opacity: 0, x: -15 }}
           animate={{ opacity: 1, x: 0 }}

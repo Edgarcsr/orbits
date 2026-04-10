@@ -1,4 +1,5 @@
 import { LightRays } from '@/components/ui/light-rays'
+import Footer from './footer'
 import Navbar from './navbar'
 
 export default function LandingLayout({
@@ -7,10 +8,11 @@ export default function LandingLayout({
   children: React.ReactNode
 }>) {
   return (
-    <main className="m-auto flex flex-col">
-      <LightRays />
+    <main className="m-auto flex flex-col min-h-screen">
+      {/* <LightRays /> */}
       <Navbar />
-      {children}
+      <div className="flex-1">{children}</div>
+      <Footer />
     </main>
   )
 }
