@@ -1,7 +1,7 @@
 'use client'
 
 import { ArrowRight, LoaderCircle } from 'lucide-react'
-import { useActionState } from 'react'
+import { useActionState, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import {
   Field,
@@ -14,6 +14,7 @@ import { signInWithEmail } from './actions'
 
 export default function SignInForm() {
   const [state, formAction, isPending] = useActionState(signInWithEmail, null)
+  const [email, setEmail] = useState('')
 
   return (
     <form action={formAction}>
@@ -25,6 +26,8 @@ export default function SignInForm() {
             id="email"
             type="email"
             placeholder="email@example.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <FieldError>{state?.errors.email}</FieldError>
         </Field>
