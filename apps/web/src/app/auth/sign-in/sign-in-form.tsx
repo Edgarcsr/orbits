@@ -1,7 +1,10 @@
 'use client'
 
+import { zodResolver } from '@hookform/resolvers/zod'
 import { ArrowRight, LoaderCircle } from 'lucide-react'
-import { useActionState, useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { toast } from 'sonner'
+import z from 'zod'
 import { Button } from '@/components/ui/button'
 import {
   Field,
@@ -10,44 +13,76 @@ import {
   FieldLabel,
 } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
-import { signInWithEmail } from './actions'
+import { authClient } from '@/lib/auth-client'
+
+const signInFormSchema = z.object({
+  email: z.email('Invalid email address'),
+  password: z.string().min(1, 'Password is required'),
+})
+
+type SignInFormSchema = z.infer<typeof signInFormSchema>
 
 export default function SignInForm() {
-  const [state, formAction, isPending] = useActionState(signInWithEmail, null)
-  const [email, setEmail] = useState('')
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm({
+    resolver: zodResolver(signInFormSchema),
+  })
+
+  async function onSubmit({ email, password }: SignInFormSchema) {
+    await toast.promise(
+      (async () => {
+        const res = await authClient.signIn.email({
+          email,
+          password,
+        })
+
+        if (res?.error) {
+          throw new Error(res.error.message)
+        }
+
+        return res
+      })(),
+      {
+        loading: 'Accessing...',
+        success: 'Welcome back!',
+        error: (err) => err.message || 'Invalid credentials',
+      },
+    )
+  }
 
   return (
-    <form action={formAction}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <FieldGroup className="w-80">
         <Field>
           <FieldLabel htmlFor="email">Email</FieldLabel>
           <Input
-            name="email"
+            {...register('email')}
             id="email"
             type="email"
             placeholder="email@example.com"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
           />
-          <FieldError>{state?.errors.email}</FieldError>
+          <FieldError>{errors?.email?.message}</FieldError>
         </Field>
         <Field>
           <FieldLabel htmlFor="password">Password</FieldLabel>
           <Input
-            name="password"
+            {...register('password')}
             id="password"
             type="password"
             placeholder="••••••••"
           />
-          <FieldError>{state?.errors.password}</FieldError>
+          <FieldError>{errors?.password?.message}</FieldError>
         </Field>
         <Button
           type="submit"
           className="w-full bg-amber-400 hover:bg-amber-300 font-normal p-4"
-          disabled={isPending}
+          disabled={isSubmitting}
         >
           Continue
-          {isPending ? (
+          {isSubmitting ? (
             <LoaderCircle className="animate-spin" />
           ) : (
             <ArrowRight />

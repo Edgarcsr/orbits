@@ -10,7 +10,7 @@ export const auth = betterAuth({
       disableDefaultReference: true,
     }),
   ],
-  trustedOrigins: ['http://localhost:3333'],
+  trustedOrigins: ['http://localhost:3333', 'http://localhost:3000'],
   database: drizzleAdapter(db, { provider: 'pg', usePlural: true }),
   baseURL: env.BETTER_AUTH_URL,
   emailAndPassword: { enabled: true },
