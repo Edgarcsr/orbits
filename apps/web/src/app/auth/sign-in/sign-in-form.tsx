@@ -1,12 +1,22 @@
-import { ArrowRight } from 'lucide-react'
+'use client'
+
+import { ArrowRight, LoaderCircle } from 'lucide-react'
+import { useActionState } from 'react'
 import { Button } from '@/components/ui/button'
-import { Field, FieldGroup, FieldLabel } from '@/components/ui/field'
+import {
+  Field,
+  FieldError,
+  FieldGroup,
+  FieldLabel,
+} from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
 import { signInWithEmail } from './actions'
 
 export default function SignInForm() {
+  const [state, formAction, isPending] = useActionState(signInWithEmail, null)
+
   return (
-    <form action={signInWithEmail}>
+    <form action={formAction}>
       <FieldGroup className="w-80">
         <Field>
           <FieldLabel htmlFor="email">Email</FieldLabel>
@@ -16,6 +26,7 @@ export default function SignInForm() {
             type="email"
             placeholder="email@example.com"
           />
+          <FieldError>{state?.errors.email}</FieldError>
         </Field>
         <Field>
           <FieldLabel htmlFor="password">Password</FieldLabel>
@@ -25,13 +36,19 @@ export default function SignInForm() {
             type="password"
             placeholder="••••••••"
           />
+          <FieldError>{state?.errors.password}</FieldError>
         </Field>
         <Button
           type="submit"
           className="w-full bg-amber-400 hover:bg-amber-300 font-normal p-4"
+          disabled={isPending}
         >
           Continue
-          <ArrowRight />
+          {isPending ? (
+            <LoaderCircle className="animate-spin" />
+          ) : (
+            <ArrowRight />
+          )}
         </Button>
       </FieldGroup>
     </form>
