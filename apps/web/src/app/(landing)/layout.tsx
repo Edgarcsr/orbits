@@ -1,5 +1,3 @@
-import { LightRays } from '@/components/ui/light-rays'
-import Footer from './footer'
 import Navbar from './navbar'
 
 export default function LandingLayout({
@@ -12,7 +10,6 @@ export default function LandingLayout({
       {/* <LightRays /> */}
       <Navbar />
       <div className="flex-1">{children}</div>
-      <Footer />
     </main>
   )
 }

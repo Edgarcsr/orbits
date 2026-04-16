@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function SignInPage() {
   return (
-    <div className="min-h-screen min-w-screen flex items-center justify-center flex-col gap-4">
+    <div className="min-h-sxcreen min-w-screen flex items-center justify-center flex-col gap-4">
       <div className="flex flex-col items-center justify-center">
         <Logo />
         <h1 className="font-bold">Sign In to Orbits</h1>

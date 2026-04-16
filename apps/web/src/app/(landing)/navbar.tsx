@@ -2,6 +2,7 @@
 
 import { ChevronRight } from 'lucide-react'
 import { motion } from 'motion/react'
+import Link from 'next/link'
 import Logo from '@/components/logo'
 import { Button } from '@/components/ui/button'
 import {
@@ -51,10 +52,12 @@ export default function Navbar() {
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
-        <Button className="bg-orbit-500 hover:bg-amber-300">
-          Open account
-          <ChevronRight className="ml-2 size-4" />
-        </Button>
+        <Link href="/auth/sign-in">
+          <Button className="bg-orbit-500 hover:bg-amber-300">
+            Open account
+            <ChevronRight className="ml-2 size-4" />
+          </Button>
+        </Link>
       </div>
     </motion.div>
   )
