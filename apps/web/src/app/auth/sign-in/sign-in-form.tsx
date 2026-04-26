@@ -37,6 +37,7 @@ export default function SignInForm() {
         const res = await authClient.signIn.email({
           email,
           password,
+          callbackURL: `${window.location.origin}/dashboard`,
         })
 
         if (res?.error) {

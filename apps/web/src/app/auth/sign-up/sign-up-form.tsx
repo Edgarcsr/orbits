@@ -2,6 +2,7 @@
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { ArrowRight } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
@@ -29,7 +30,6 @@ export default function SignUpForm() {
   const {
     handleSubmit,
     register,
-    setError,
     formState: { errors, isSubmitting },
   } = useForm({
     resolver: zodResolver(signUpSchema),
@@ -39,6 +39,7 @@ export default function SignUpForm() {
   const [confirmPassword, setConfirmPassword] = useState('')
 
   const doesPasswordsMatch = password === confirmPassword
+  const router = useRouter()
 
   async function onSubmit({ name, email, password }: SignUpFormSchema) {
     await toast.promise(
@@ -52,6 +53,8 @@ export default function SignUpForm() {
         if (res.error) {
           throw new Error(res.error.message || 'Error creating account')
         }
+
+        router.push('/')
 
         return res
       },
