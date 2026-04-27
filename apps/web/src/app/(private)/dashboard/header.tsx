@@ -14,20 +14,33 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { Separator } from '@/components/ui/separator'
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from '@/components/ui/tooltip'
 import { authClient } from '@/lib/auth-client'
+import { UsageProgress } from './usage-progress'
 
 export default function DashboardHeader() {
-  const { data: session, isPending } = authClient.useSession()
+  const { data: session } = authClient.useSession()
 
   return (
     <div className="py-2 px-4 flex items-center gap-4 border-b">
       <Logo size={38} />
       <Separator orientation="vertical" className="h-8" />
-      <div className="flex items-center gap-4 left-0">
-        <Button className="bg-amber-300">
-          <ArrowUpFromLineIcon />
-          Upload file
-        </Button>
+      <div className="flex items-center gap-4 ml-auto">
+        <Tooltip>
+          <TooltipTrigger
+            render={
+              <Button size={'icon'} variant={'outline'}>
+                <ArrowUpFromLineIcon />
+              </Button>
+            }
+          />
+          <TooltipContent>Upload File</TooltipContent>
+        </Tooltip>
+
         <DropdownMenu>
           <DropdownMenuTrigger>
             <Avatar>
@@ -40,7 +53,7 @@ export default function DashboardHeader() {
               </AvatarFallback>
             </Avatar>
           </DropdownMenuTrigger>
-          <DropdownMenuContent>
+          <DropdownMenuContent align="end">
             <DropdownMenuGroup>
               <DropdownMenuLabel>My Account</DropdownMenuLabel>
               <DropdownMenuItem>Profile</DropdownMenuItem>
@@ -48,7 +61,12 @@ export default function DashboardHeader() {
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <DropdownMenuItem>Usage</DropdownMenuItem>
+              <DropdownMenuItem className="group">
+                Usage:
+                <div className="ml-auto">
+                  <UsageProgress percentage={75} size={20} />
+                </div>
+              </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
