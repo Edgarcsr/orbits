@@ -19,7 +19,7 @@ export function UsageProgress({ percentage, size = 20 }: UsageProgressProps) {
           fill="none"
           stroke="currentColor"
           strokeWidth="5"
-          className="text-gray-300 dark:text-gray-600 group-hover:opacity-30 "
+          className="text-gray-600 opacity-30 "
         />
         {/* Progress circle */}
         <circle
@@ -29,7 +29,7 @@ export function UsageProgress({ percentage, size = 20 }: UsageProgressProps) {
           fill="none"
           stroke="currentColor"
           strokeWidth="5"
-          className="text-amber-300"
+          className="dark:text-amber-300"
           strokeDasharray={circumference}
           strokeDashoffset={strokeDashoffset}
           strokeLinecap="round"

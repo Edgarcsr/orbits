@@ -64,7 +64,7 @@ export default function DashboardHeader() {
               <DropdownMenuItem className="group">
                 Usage:
                 <div className="ml-auto">
-                  <UsageProgress percentage={75} size={20} />
+                  <UsageProgress percentage={12} size={20} />
                 </div>
               </DropdownMenuItem>
             </DropdownMenuGroup>
